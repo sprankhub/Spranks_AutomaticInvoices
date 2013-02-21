@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Spranks_AutomaticInvoices>
+            <codePool>community</codePool>
+            <active>true</active>
+            <depends>
+                <Mage_Checkout/>
+                <Mage_Core/>
+                <Mage_Payment/>
+                <Mage_Sales/>
+            </depends>
+        </Spranks_AutomaticInvoices>
+    </modules>
+</config>

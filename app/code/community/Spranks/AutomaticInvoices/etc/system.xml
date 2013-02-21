@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <spranks translate="label" module="spranks_automaticinvoices">
+            <label>Spranks Extensions</label>
+            <sort_order>301</sort_order>
+        </spranks>
+    </tabs>
+    <sections>
+        <spranks_automaticinvoices translate="label" module="spranks_automaticinvoices">
+            <tab>spranks</tab>
+            <label>Automatic Invoices</label>
+            <sort_order>20</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label" module="spranks_automaticinvoices">
+                    <label>General Settings</label>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <is_active translate="label,comment">
+                            <label>Enable module</label>
+                            <comment>The cache under System - Cache Management should be refreshed after each change.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </is_active>
+                    </fields>
+                    <fields>
+                        <payment_methods translate="label,comment">
+                            <label>An invoice should be automatically created for the following payment methods:</label>
+                            <comment>The cache under System - Cache Management should be refreshed after each change.</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>spranks_automaticinvoices/adminhtml_system_config_source_payment_allowedmethods</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </payment_methods>
+                    </fields>
+                    <fields>
+                        <send_invoice_email translate="label,comment">
+                            <label>Send the invoice mail to the customer</label>
+                            <comment>The cache under System - Cache Management should be refreshed after each change.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </send_invoice_email>
+                    </fields>
+                </general>
+            </groups>
+        </spranks_automaticinvoices>
+    </sections>
+</config>

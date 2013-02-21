@@ -1,0 +1,15 @@
+{
+    "name":"Spranks/AutomaticInvoices",
+    "type":"magento-module",
+    "license":"OSL-3.0",
+    "homepage":"https://github.com/sprankhub/Spranks_AutomaticInvoices",
+    "description":"This extension can invoice and send invoice mails for orders payed with specified payment methods automatically.",
+    "authors":[
+        {
+            "name":"Simon Sprankel"
+        }
+    ],
+    "require":{
+        "magento-hackathon/magento-composer-installer":"*"
+    }
+}
