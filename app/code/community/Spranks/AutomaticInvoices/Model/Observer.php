@@ -39,6 +39,9 @@ class Spranks_AutomaticInvoices_Model_Observer
                     ->addObject($invoice)
                     ->addObject($invoice->getOrder())
                     ->save();
+            } else {
+                // order has already been invoiced, so get the invoice
+                $invoice = $order->getInvoiceCollection()->getFirstItem();
             }
             // if invoice mail should not be sent, do nothing more
             if (!Mage::getStoreConfig('spranks_automaticinvoices/general/send_invoice_email')) {
