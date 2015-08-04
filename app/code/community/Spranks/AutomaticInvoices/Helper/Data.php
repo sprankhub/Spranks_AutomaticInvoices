@@ -22,8 +22,9 @@ class Spranks_AutomaticInvoices_Helper_Data extends Mage_Core_Helper_Abstract
             $methodsToBeInvoicedArray);
 
         // dispatch an event so that more rules can be applied
-        $result = new Varien_Object(array('order' => $order, 'should_invoice' => $enabledPaymentMethod));
-        Mage::dispatchEvent('spranks_automaticinvoices_should_invoice_order', array('result' => $result));
+        $result = new Varien_Object(array('should_invoice' => $enabledPaymentMethod));
+        Mage::dispatchEvent('spranks_automaticinvoices_should_invoice_order',
+            array('order' => $order, 'result' => $result));
 
         return $result->getShouldInvoice();
     }
