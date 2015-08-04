@@ -1,4 +1,4 @@
-app/etc/modules/Spranks_AutomaticInvoices.xml      app/etc/modules/Spranks_AutomaticInvoices.xml
-app/code/community/Spranks/AutomaticInvoices/      app/code/community/Spranks/AutomaticInvoices/
-app/locale/de_DE/*                                 app/locale/de_DE
-app/locale/en_US/*                                 app/locale/en_US
+app/code/community/Spranks/AutomaticInvoices/ app/code/community/Spranks/AutomaticInvoices/
+app/etc/modules/Spranks_AutomaticInvoices.xml app/etc/modules/Spranks_AutomaticInvoices.xml
+app/locale/de_DE/Spranks_AutomaticInvoices.csv app/locale/de_DE/Spranks_AutomaticInvoices.csv
+app/locale/en_US/Spranks_AutomaticInvoices.csv app/locale/en_US/Spranks_AutomaticInvoices.csv
