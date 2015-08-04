@@ -23,10 +23,12 @@ class Spranks_AutomaticInvoices_Model_Observer
                 return;
             }
         }
+
+        $helper = Mage::helper('spranks_automaticinvoices');
         foreach ($orders as $order) {
             /* @var $order Mage_Sales_Model_Order */
             // if orders with this payment method should not be invoiced, do nothing
-            if ( ! $this->_shouldBeInvoiced($order->getPayment())) {
+            if ( ! $helper->shouldInvoiceOrder($order)) {
                 continue;
             }
             // if order can be invoiced / has not been invoiced yet, invoice it
@@ -52,24 +54,6 @@ class Spranks_AutomaticInvoices_Model_Observer
                 $invoice->sendEmail();
             }
         }
-    }
-
-    /**
-     * Determines whether orders with the given payment method should be invoiced.
-     *
-     * @param Mage_Sales_Model_Order_Payment $payment the payment of the order
-     *
-     * @return bool
-     */
-    private function _shouldBeInvoiced(Mage_Sales_Model_Order_Payment $payment)
-    {
-        // get a comma separated string of enabled payment methods
-        $methodsToBeInvoiced = Mage::getStoreConfig('spranks_automaticinvoices/general/payment_methods');
-        // put the enabled payment methods into an array
-        $methodsToBeInvoicedArray = explode(',', $methodsToBeInvoiced);
-
-        // check whether the given payment method is enabled in configuration
-        return in_array($payment->getMethodInstance()->getCode(), $methodsToBeInvoicedArray);
     }
 
 }
