@@ -11,7 +11,7 @@ class Spranks_AutomaticInvoices_Block_Adminhtml_System_Config_Form_Field_Select_
             $this->addOption($option['value'], $option['label']);
         }
 
-        $this->setExtraParams('style="width: 100px;"');
+        $this->setExtraParams('style="width: 150px;"');
 
         return parent::_toHtml();
     }
