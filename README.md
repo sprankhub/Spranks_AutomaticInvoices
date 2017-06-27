@@ -4,7 +4,7 @@ This extension can invoice and send invoice mails for orders payed with specifie
 
 Facts
 -----
-- version: 0.2.2
+- version: 1.0.0
 - extension key: Spranks_AutomaticInvoices
 - [extension on GitHub](https://github.com/sprankhub/Spranks_AutomaticInvoices)
 - [direct download link](https://github.com/sprankhub/Spranks_AutomaticInvoices/zipball/master)
