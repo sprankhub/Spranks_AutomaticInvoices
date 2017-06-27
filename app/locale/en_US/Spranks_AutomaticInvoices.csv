@@ -3,6 +3,5 @@
 "Automatic Invoices Settings","Automatic Invoices Settings"
 "General Settings","General Settings"
 "Enable module","Enable module"
-"The cache under System - Cache Management should be refreshed after each change.","The cache under System - Cache Management should be refreshed after each change."
 "An invoice should be automatically created for the following payment methods:","An invoice should be automatically created for the following payment methods:"
-"Send the invoice mail to the customer,"Send the invoice mail to the customer"
+"Send invoice mail","Send invoice mail"
