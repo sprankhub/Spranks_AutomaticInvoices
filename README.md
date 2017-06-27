@@ -15,7 +15,7 @@ This extension can invoice and send invoice mails for orders payed with specifie
 
 Requirements
 ------------
-- PHP >= 5.2.0
+- PHP >= 5.6.0
 - Mage_Checkout
 - Mage_Core
 - Mage_Payment
@@ -23,7 +23,7 @@ Requirements
 
 Compatibility
 -------------
-- Magento >= 1.5 (1.4 should also work)
+- Magento >= 1.7
 
 Installation Instructions
 -------------------------
