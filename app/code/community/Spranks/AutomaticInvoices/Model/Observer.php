@@ -11,8 +11,10 @@ class Spranks_AutomaticInvoices_Model_Observer
      */
     public function checkoutSubmitAllAfter(Varien_Event_Observer $observer)
     {
+        /** @var Spranks_AutomaticInvoices_Helper_Config $helper */
+        $helper = Mage::helper('spranks_automaticinvoices/config');
         // if module is disabled, do nothing
-        if ( ! Mage::getStoreConfig('spranks_automaticinvoices/general/is_active')) {
+        if ( ! $helper->isActive()) {
             return;
         }
         // get the order from the onepage checkout or the orderS from the multishipping checkout
@@ -24,7 +26,6 @@ class Spranks_AutomaticInvoices_Model_Observer
             }
         }
 
-        $helper = Mage::helper('spranks_automaticinvoices');
         foreach ($orders as $order) {
             /* @var $order Mage_Sales_Model_Order */
             // if orders with this payment method should not be invoiced, do nothing
@@ -33,8 +34,10 @@ class Spranks_AutomaticInvoices_Model_Observer
             }
             // if order can be invoiced / has not been invoiced yet, invoice it
             if ($order->canInvoice()) {
+                $captureCase = $helper->getCaptureInvoice($order);
                 /* @var $invoice Mage_Sales_Model_Order_Invoice */
                 $invoice = $order->prepareInvoice();
+                $invoice->setRequestedCaptureCase($captureCase);
                 $invoice->register();
                 $invoice->getOrder()->setIsInProcess(true);
                 Mage::getModel('core/resource_transaction')
@@ -46,7 +49,7 @@ class Spranks_AutomaticInvoices_Model_Observer
                 $invoice = $order->getInvoiceCollection()->getFirstItem();
             }
             // if invoice mail should not be sent, do nothing more
-            if ( ! Mage::getStoreConfig('spranks_automaticinvoices/general/send_invoice_email')) {
+            if ( ! $helper->shouldSendInvoiceEmail($order)) {
                 continue;
             }
             // if invoice has not been sent to the customer yet, send it now
