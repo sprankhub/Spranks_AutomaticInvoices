@@ -26,7 +26,7 @@ class Spranks_AutomaticInvoices_Helper_Data extends Mage_Core_Helper_Abstract
         Mage::dispatchEvent('spranks_automaticinvoices_should_invoice_order',
             array('order' => $order, 'result' => $result));
 
-        return $result->getShouldInvoice();
+        return $result->getData('should_invoice');
     }
 
 }
