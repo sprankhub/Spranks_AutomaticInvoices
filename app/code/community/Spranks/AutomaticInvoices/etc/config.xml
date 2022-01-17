@@ -22,15 +22,15 @@
             </spranks_automaticinvoices>
         </models>
         <events>
-            <checkout_submit_all_after>
+            <sales_model_service_quote_submit_after>
                 <observers>
                     <spranks_automaticinvoices>
                         <type>model</type>
                         <class>spranks_automaticinvoices/observer</class>
-                        <method>checkoutSubmitAllAfter</method>
+                        <method>salesModelServiceQuoteSubmitAfter</method>
                     </spranks_automaticinvoices>
                 </observers>
-            </checkout_submit_all_after>
+            </sales_model_service_quote_submit_after>
         </events>
     </global>
     <adminhtml>
